@@ -15,8 +15,8 @@ sudo apt-get install vlc
 raspivid -o - -t 0 -n -w 600 -h 400 -fps 12 | cvlc -vvv stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264
 </pre>
 
-Now live stream is available at [rtsp://pixum.local:8554]/(rtsp://pixum.local:8554/)
+Now live stream is available at [rtsp://pixum.local:8554](rtsp://pixum.local:8554/)
 
 ##Reference
-http://www.ics.com/blog/raspberry-pi-camera-module
-https://www.raspberrypi.org/documentation/usage/camera/README.md
+- http://www.ics.com/blog/raspberry-pi-camera-module
+- https://www.raspberrypi.org/documentation/usage/camera/README.md
