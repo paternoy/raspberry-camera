@@ -14,8 +14,17 @@ Use VLC for streaming
 sudo apt-get install vlc
 raspivid -o - -t 0 -n -w 600 -h 400 -fps 12 | cvlc -vvv stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264
 </pre>
+Stream with NetCat
+<pre>
+raspivid -t 0 -w 1280 -h 720 -hf -ih -fps 20 -o - | nc -k -l -p 5000
+</pre>
 
-Now live stream is available at [rtsp://pixum.local:8554](rtsp://pixum.local:8554/)
+To play H264 format, we can use mplayer
+<pre>
+mplayer -fps 200 -demuxer h264es ffmpeg://tcp://raspberrypi.local:5000
+</pre>
+
+Now live stream is available at [rtsp://raspberrypilocal:8554](rtsp://raspberrypi.local:8554/)
 
 ##Reference
 - http://www.ics.com/blog/raspberry-pi-camera-module
